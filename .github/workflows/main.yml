@@ -1,0 +1,44 @@
+name: Build and Deploy Frontend
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the Code
+    - uses: actions/checkout@v4
+
+    # Step 2: Set up Node.js for Angular build
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    # Step 3: Cache npm dependencies
+    - name: Cache npm dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm  # Cache location for npm dependencies
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+
+    # Step 4: Install Angular CLI globally
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli
+
+    # Step 5: Install dependencies and build the Angular project
+    - name: Install Dependencies and Build Angular
+      run: |
+        npm install
+        ng build --prod
+
+    # Step 6: Package the Build Files
+    - name: Package Angular Build into TAR
+      run: |
+        tar -czvf papertrl-ui-v2.tar.gz -C dist/papertrl-ui-v2 .
+
