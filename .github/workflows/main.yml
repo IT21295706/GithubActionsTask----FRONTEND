@@ -34,6 +34,7 @@ jobs:
     # Step 5: Install dependencies and build the Angular project
     - name: Install Dependencies and Build Angular
       run: |
+        cd papertrl-ui-v2      # navigate to the directory containing package.json
         npm install
         ng build --prod
 
