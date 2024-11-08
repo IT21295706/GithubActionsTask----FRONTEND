@@ -36,7 +36,7 @@ jobs:
       run: |
         cd papertrl-ui-v2      # navigate to the directory containing package.json
         npm install
-        ng build --prod
+        ng build --configuration production
 
     # Step 6: Package the Build Files
     - name: Package Angular Build into TAR
