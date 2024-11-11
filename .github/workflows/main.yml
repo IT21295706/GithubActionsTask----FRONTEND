@@ -42,13 +42,13 @@ jobs:
       run: pwd
 
     - name: List dist folder contents
-      run: cd papertrl-ui-v2
-
-    - name: Print Working Directory
-      run: pwd
+      run: |
+        cd papertrl-ui-v2
+        ls -l dist/
       
     # Step 6: Package the Build Files
     - name: Package Angular Build into TAR
       run: |
+        cd papertrl-ui-v2
         tar -czvf papertrl-ui-v2.tar.gz -C dist/papertrl-ui-v2 .
 
