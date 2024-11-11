@@ -38,6 +38,9 @@ jobs:
         npm install
         ng build --configuration production
 
+    - name: Print Working Directory
+      run: pwd
+
     - name: List dist folder contents
       run: ls -l ./dist/
 
