@@ -72,6 +72,7 @@ jobs:
         ECR_REPOSITORY: github-actions-task-private  
         IMAGE_TAG: latest-frontend
       run: |
+       cd papertrl-ui-v2
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
