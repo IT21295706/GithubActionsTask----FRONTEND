@@ -73,8 +73,6 @@ jobs:
         IMAGE_TAG: latest-frontend
       run: |
         cd papertrl-ui-v2
-        echo "FROM scratch" > Dockerfile
-        echo "COPY papertrl-ui-v2.tar.gz /" >> Dockerfile
 
         # Build the Docker image
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
