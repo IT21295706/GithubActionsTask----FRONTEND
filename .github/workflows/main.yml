@@ -72,7 +72,12 @@ jobs:
         ECR_REPOSITORY: github-actions-task-private  
         IMAGE_TAG: latest-frontend
       run: |
-       cd papertrl-ui-v2
+        cd papertrl-ui-v2
+        echo "FROM scratch" > Dockerfile
+        echo "COPY papertrl-ui-v2.tar.gz /" >> Dockerfile
+
+        # Build the Docker image
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+
+        # Push the Docker image to AWS ECR
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
