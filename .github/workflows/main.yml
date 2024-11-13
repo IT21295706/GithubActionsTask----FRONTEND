@@ -38,13 +38,6 @@ jobs:
         npm install
         ng build --configuration production
 
-    - name: Print Working Directory
-      run: pwd
-
-    - name: List dist folder contents
-      run: |
-        cd papertrl-ui-v2
-        ls -l dist/
       
     # Step 6: Package the Build Files
     - name: Package Angular Build into TAR
