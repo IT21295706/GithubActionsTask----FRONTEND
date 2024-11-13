@@ -39,12 +39,6 @@ jobs:
         ng build --configuration production
 
 
-    # Step 6: Package the Build Files
-    - name: Package Angular Build into TAR
-      run: |
-        cd papertrl-ui-v2
-        tar -czvf papertrl-ui-v2.tar.gz -C dist/papertrl-ui-v2 .
-
     - name: Configure AWS credentials for ECR
       uses: aws-actions/configure-aws-credentials@v1
       with:
