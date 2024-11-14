@@ -63,10 +63,9 @@ jobs:
         ECR_REPOSITORY: github-actions-task-private  
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        cd papertrl-ui-v2
 
         # Build the Docker image
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f papertrl-ui-v2/Dockerfile papertrl-ui-v2
 
         # Push the Docker image to AWS ECR
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
