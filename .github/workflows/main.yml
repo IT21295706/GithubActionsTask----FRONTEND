@@ -37,7 +37,7 @@ jobs:
     - name: Install Dependencies and Build Angular
       run: |
         cd papertrl-ui-v2      # navigate to the directory containing package.json
-        npm ci
+        npm install
         ng build --configuration production
 
 
