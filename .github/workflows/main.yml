@@ -31,7 +31,7 @@ jobs:
 
     # Step 4: Install Angular CLI globally
     - name: Install Angular CLI
-      run: npm install @angular/cli
+      run: npm install -g @angular/cli
 
     # Step 5: Install dependencies and build the Angular project
     - name: Install Dependencies and Build Angular
