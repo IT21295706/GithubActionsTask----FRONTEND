@@ -60,7 +60,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: github-actions-task-private  
-        IMAGE_TAG: latest-frontend
+        IMAGE_TAG: ${{ github.sha }}
       run: |
         cd papertrl-ui-v2
 
