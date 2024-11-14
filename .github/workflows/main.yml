@@ -22,7 +22,9 @@ jobs:
     - name: Cache npm dependencies
       uses: actions/cache@v3
       with:
-        path: ~/.npm  # Cache location for npm dependencies
+        path: |
+          ~/.npm  # Cache location for npm dependencies
+          **/node_modules   # Cache node_modules directories across the project
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
