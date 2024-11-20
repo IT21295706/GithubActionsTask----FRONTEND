@@ -52,7 +52,7 @@ jobs:
           cd papertrl-ui-v2
           npm install -g sonar-scanner
           sonar-scanner \
-            -Dsonar.projectKey=my-angular-project \
+            -Dsonar.projectKey=Githubactions-frontend \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.organization=it21295706 \
             -Dsonar.login=$SONAR_TOKEN \
