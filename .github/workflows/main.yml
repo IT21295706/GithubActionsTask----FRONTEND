@@ -54,6 +54,7 @@ jobs:
           sonar-scanner \
             -Dsonar.projectKey=my-angular-project \
             -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.organization=it21295706 \
             -Dsonar.login=$SONAR_TOKEN \
             -Dsonar.sources=src \
             -Dsonar.language=ts \
