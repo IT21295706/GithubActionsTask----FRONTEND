@@ -46,23 +46,10 @@ jobs:
 
         # Step 5: Run SonarQube Analysis BEFORE Angular build
       - name: Run SonarQube Analysis
+        uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          cd papertrl-ui-v2
-          npm install -g sonar-scanner
-          sonar-scanner \
-            -Dsonar.projectKey=Githubactions-frontend \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.organization=it21295706 \
-            -Dsonar.login=$SONAR_TOKEN \
-            -Dsonar.sources=src \
-            -Dsonar.language=ts \
-            -Dsonar.exclusions=**/*.spec.ts,**/node_modules/** \
-            -Dsonar.tests=src \
-            -Dsonar.test.inclusions=**/*.spec.ts \
-            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-
+          SONAR_HOST_URL: 'https://sonarcloud.io/'
 
         # Step 6: Build Angular Application
       - name: Build Angular Application
