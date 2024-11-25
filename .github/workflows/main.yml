@@ -34,14 +34,6 @@ jobs:
         run: |
           cd papertrl-ui-v2
           npm install
-    
-
-    # Step: Set up Java 17 for SonarQube Scanner
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin' # Use Eclipse Temurin as the Java distribution
 
 
         # Step 5: Run SonarQube Analysis BEFORE Angular build
