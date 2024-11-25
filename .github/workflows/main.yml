@@ -29,7 +29,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 
 
-      # Step 4: Install dependencies and build the Angular project
+      # Step 4: Install npm  dependencies 
       - name: Install Dependencies and Build Angular
         run: |
           cd papertrl-ui-v2
