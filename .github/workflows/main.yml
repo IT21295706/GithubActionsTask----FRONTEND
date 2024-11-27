@@ -34,23 +34,18 @@ jobs:
         run: |
           cd papertrl-ui-v2
           npm install
-
-
         # Step 5: Run SonarQube Analysis BEFORE Angular build
       - name: Run SonarQube Analysis
         uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: 'https://sonarcloud.io/
-'
+          SONAR_HOST_URL: 'https://sonarcloud.io/'
 
         # Step 6: Build Angular Application
       - name: Build Angular Application
         run: |
           cd papertrl-ui-v2
           npx ng build --configuration production
-
-
       # Step 7: Configure AWS credentials for ECR
       - name: Configure AWS credentials for ECR
         uses: aws-actions/configure-aws-credentials@v2
